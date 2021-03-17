@@ -8,8 +8,53 @@ in the module [angular-loading-bar](https://www.npmjs.com/package/angular-loadin
 awesome [nprogress](https://www.npmjs.com/package/nprogress) module to display the loading bar in
 the Browser.
 
-**Attention:** This module is not bound to any framework. You can use it in any Web application that
+> Note: This module is not bound to any framework. You can use it in any Web application that
 uses axios.
+
+
+
+## CDN Distribution 
+
+> Note: check for the latest tag, current is `1.3.1`
+
+Javascript Production:
+[https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/index.js](https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/index.js)
+
+Development URL
+[https://raw.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/index.js](https://raw.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/index.js)
+
+
+> Backported CSS just replace `main.css` with `nprogress.css`
+
+CSS Production
+[https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/main.css](https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/main.css)
+
+Development CSS 
+[https://raw.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/main.css](https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/main.css)
+
+## Usage 
+
+```html 
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/main.css"
+    />
+  </head>
+```
+
+```html
+ <script src="https://rawcdn.githack.com/sambacha/progress-bar-4-axios/1.3.1/dist/index.js"></script>
+ <!-- .... -->
+
+  <script type="text/javascript">
+    loadProgressBar()
+     <!-- .... -->
+  </script>
+```
+
+
 
 ### Demo
 
