@@ -1,3 +1,6 @@
 demo_axios_progress_bar.gif
 demo_axios_progress_bar_red.gif
 test-environment/
+tests/
+.github/
+lib/
