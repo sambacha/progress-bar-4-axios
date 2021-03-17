@@ -1,4 +1,3 @@
-
 const test = require('tape');
 //jsdom is a way to create a document object on the backend, we only need the JSDOM constructor from it so we get that out straight away
 const JSDOM = require('jsdom').JSDOM;
@@ -17,7 +16,7 @@ global.document = DOM.window.document;
 //Now that we have the document globally we can require in the code from our JS file
 const frontEndCode = require('../lib/script.js');
 
-test('test increment function', function(t) {
+test('test increment function', function (t) {
   let actual = frontEndCode.increment(1); // cannot be "const" if re-assigning below!!
   let expected = 2;
   t.equal(actual, expected, 'should add one to a number');
@@ -31,7 +30,7 @@ test('test increment function', function(t) {
 });
 
 //the same tests for decrement
-test('test decrement function', function(t) {
+test('test decrement function', function (t) {
   let actual = frontEndCode.decrement(1);
   let expected = 0;
   t.equal(actual, expected, 'should add one to a number');
@@ -42,7 +41,7 @@ test('test decrement function', function(t) {
   t.end();
 });
 
-test('tests the reset function', function(t) {
+test('tests the reset function', function (t) {
   const actual = frontEndCode.resetFunc();
   const expected = 0;
   t.equal(actual, expected, 'resetFunc should return zero');
@@ -50,34 +49,30 @@ test('tests the reset function', function(t) {
 });
 
 //here, like above we update a dom node using updateDom and then check that dom node's textContent against what we passed to updateDom.
-test('test the updateDom function', function(t) {
+test('test the updateDom function', function (t) {
   frontEndCode.updateDom('hello', document.querySelector('.error'));
   const actual = document.querySelector('.error').textContent;
   const expected = 'hello';
   t.equal(
     actual,
     expected,
-    "updateDom should update a dom node's textContent with a string passed to updateDom"
+    "updateDom should update a dom node's textContent with a string passed to updateDom",
   );
   t.end();
 });
 
-test('testing currentCount', function(t) {
+test('testing currentCount', function (t) {
   const count = document.querySelector('.count');
   //reset the count to zero so that we don't have to worry about it being influenced by previous tests
   frontEndCode.updateDom(frontEndCode.resetFunc(), count);
   const actual = frontEndCode.currentCount();
   const expected = '0';
-  t.equal(
-    actual,
-    expected,
-    "currentCount returns the textContent of the 'count' DOM node"
-  );
+  t.equal(actual, expected, "currentCount returns the textContent of the 'count' DOM node");
   t.end();
 });
 
 //testing our event listeners
-test('increment is called when the inc button is clicked', function(t) {
+test('increment is called when the inc button is clicked', function (t) {
   const count = document.querySelector('.count');
 
   frontEndCode.updateDom(frontEndCode.resetFunc(), count);
@@ -85,18 +80,12 @@ test('increment is called when the inc button is clicked', function(t) {
   document.querySelector('.inc').click();
   const actual = count.textContent;
   const expected = '1';
-  t.equal(
-    actual,
-    expected,
-    "clicking the '+' button in the DOM should increment the count by 1"
-  );
+  t.equal(actual, expected, "clicking the '+' button in the DOM should increment the count by 1");
   t.end();
 });
 
 // do the same tests for decrement and reset
-test('decrement is called properly when the inc button is clicked', function(
-  t
-) {
+test('decrement is called properly when the inc button is clicked', function (t) {
   const count = document.querySelector('.count');
 
   frontEndCode.updateDom(frontEndCode.resetFunc(), count);
@@ -104,15 +93,11 @@ test('decrement is called properly when the inc button is clicked', function(
   document.querySelector('.dec').click();
   const actual = count.textContent;
   const expected = '-1';
-  t.equal(
-    actual,
-    expected,
-    "clicking the '-' button in the DOM should decrement the count by 1"
-  );
+  t.equal(actual, expected, "clicking the '-' button in the DOM should decrement the count by 1");
   t.end();
 });
 
-test('reset is called properly when the inc button is clicked', function(t) {
+test('reset is called properly when the inc button is clicked', function (t) {
   const count = document.querySelector('.count');
 
   frontEndCode.updateDom(frontEndCode.resetFunc(), count);
@@ -120,10 +105,6 @@ test('reset is called properly when the inc button is clicked', function(t) {
   document.querySelector('.reset').click();
   const actual = count.textContent;
   const expected = '0';
-  t.equal(
-    actual,
-    expected,
-    "clicking the 'reset' button in the DOM should reset the count by 0"
-  );
+  t.equal(actual, expected, "clicking the 'reset' button in the DOM should reset the count by 0");
   t.end();
 });

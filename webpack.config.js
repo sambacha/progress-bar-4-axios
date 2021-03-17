@@ -1,14 +1,12 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: ['./src/index.js'],
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: 'index.js',
   },
   module: {
     rules: [
@@ -18,17 +16,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'stage-1']
-          }
-        }
+            presets: ['env', 'stage-1'],
+          },
+        },
       },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        }
-      
-    ]
+      },
+    ],
   },
   plugins: [new MiniCssExtractPlugin('nprogress.css')],
-  externals: [{ axios: 'axios' }]
-}
+  externals: [{ axios: 'axios' }],
+};
