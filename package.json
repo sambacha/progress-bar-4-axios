@@ -11,7 +11,6 @@
     "type": "git",
     "url": "https://github.com/rikmms/progress-bar-4-axios.git"
   },
-  "author": "rikmms <sousa.ricardo10@gmail.com>",
   "license": "MIT",
   "keywords": [
     "axios",
@@ -32,16 +31,14 @@
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.7",
     "mini-css-extract-plugin": "^0.9.0",
-    "nprogress": "0.2.0",
-    "serve": "6.0.6",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "peerDependencies": {
-    "axios": "0.x"
+    "axios": "^0.21.1"
   },
   "dependencies": {
-    "ajv": "^6.12.0",
-    "axios": "^0.19.2"
+    "ajv": "^6.12.6",
+    "axios": "^0.21.1"
   }
 }
